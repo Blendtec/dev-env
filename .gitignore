@@ -1,0 +1,5 @@
+.vagrant
+.idea/workspace.xml
+.idea/dictionaries/*
+.DS_STORE
+www
