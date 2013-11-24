@@ -11,7 +11,7 @@ dev-env
 ```shell
 git clone git@github.com:Blendtec/dev-env.git
 cd dev-env
-sudo chmod +x setup.sh
+chmod +x setup.sh
 ./setup.sh
 vagrant up
 ```
