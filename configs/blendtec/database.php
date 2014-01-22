@@ -67,7 +67,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => 'id10t',
-		'database' => 'blendtec',
+		'database' => 'dev',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
@@ -78,7 +78,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => 'id10t',
-		'database' => 'blendtec_test',
+		'database' => 'dev_test',
         'prefix' => '',
         //'encoding' => 'utf8',
 	);
