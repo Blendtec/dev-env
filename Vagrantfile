@@ -117,11 +117,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         },
         :packages => {
             :debs => %w(vim) #will run simple apt-get install for any package here
-        },
-        :git => {
-            :email => 'tdickson@blendtec.com',
-            :user => 'Tom Dickson',
-            :push_default => 'simple'
         }
       }
   end
