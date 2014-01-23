@@ -34,17 +34,6 @@ Windows
     cd dev-env
     ./setup.sh
 ```
-###2. Git Config 
-Add your email, name, and push behavior preference in the [git config section](https://github.com/Blendtec/dev-env/blob/master/Vagrantfile#L121) (git bash (cygwin) is recommended) in the vagrantfile. This must match your name and email in phabricator.
-
-```ruby
-    :git => {
-        :email => 'tdickson@blendtec.com',
-        :user => 'Tom Dickson',
-        :push_default => 'simple'
-    }
-```
-(you can always update this later with normal git config commands)
 if you're on a windows machine without git gitbash/cygwin installed you probably want to manually
 go through the commands in setup.sh substituting commands as necessary until I add a batch file. 
 
@@ -71,6 +60,12 @@ Follow the instructions
 *    paste it in
 
 you should see SUCCESS! Certificate installed. 
+
+###5. Configure Git
+```shell
+    git config --global user.name "John Doe"
+    git config --global user.email johndoe@example.com
+```
 
 ###6. Update your database
 using your favorite client connect to localhost:3307
