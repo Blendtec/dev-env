@@ -8,16 +8,21 @@ dev-env
 *  [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 
 ##Prerequisites
-*  SSH keys generated
+#1. SSH keys generated
 ```shell
     ssh-keygen -t rsa -C "your_email@example.com"
 ```
-*  Identities added to ssh-agent
+#2. Identities added to ssh-agent
+Linux & OS X
 ```shell
     ssh-add
 ```
-*  Add your email, name, and push behavior preference in the git config in the vagrantfile. (you can always update this later with
-normal git config commands)
+Windows
+```shell
+    eval `ssh-agent.exe`
+    ssh-add ~/.ssh/
+```
+#3.  Add your email, name, and push behavior preference in the git config in the vagrantfile. (you can always update this later with normal git config commands)
 
 
 ##steps to get up and running
@@ -31,7 +36,7 @@ normal git config commands)
 if you're on a windows machine without git gitbash/cygwin installed you probably want to manually
 go through the commands in setup.sh substituting commands as necessary.
 
-#2. Start vagrant (this will take a little while the first while the provisioner runs)
+#2. Start vagrant (provisioning takes a while on the initial boot). 
 ```shell
     vagrant up
 ```
