@@ -10,11 +10,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "precise32"
+  config.vm.box = "precise64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -34,7 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
-  # config.ssh.forward_agent = true
+  config.ssh.forward_agent = true
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is
@@ -89,21 +89,23 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :chef_solo do |chef|
     #chef.roles_path = "chef/roles"
     #chef.data_bags_path = "chef/data_bags"
-
-        chef.add_recipe 'apt'
-        chef.add_recipe "build-essential"
-        chef.add_recipe 'ubuntu'
-        chef.add_recipe 'apache2'
-        chef.add_recipe "mysql::client"
-        chef.add_recipe "mysql::server"
-        chef.add_recipe 'php'
-        chef.add_recipe 'packages'
-        chef.add_recipe "php::module_mysql"
-        chef.add_recipe "apache2::mod_php5"
-        chef.add_recipe "apache2::mod_rewrite"
+    chef.add_recipe 'apt'
+    chef.add_recipe "build-essential"
+    chef.add_recipe 'ubuntu'
+    chef.add_recipe "mysql::client"
+    chef.add_recipe "mysql::server"
+    chef.add_recipe 'php'
+    chef.add_recipe "php::module_mysql"
+    chef.add_recipe "php::module_curl"
+    chef.add_recipe "php::module_gd"
+    chef.add_recipe 'apache2'
+    chef.add_recipe "apache2::mod_php5"
+    chef.add_recipe "apache2::mod_rewrite"
+    chef.add_recipe 'packages'
+    chef.add_recipe 'git'
+    chef.add_recipe 'dev_tools'
   #
   #   # You may also specify custom JSON attributes:
-  #   chef.json = { :mysql_password => "foo" }
       chef.json = {
         :apache => {
           :user => 'vagrant',
@@ -111,14 +113,17 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         },
         :mysql => {
           :server_root_password => 'id10t',
-          :dbs =>  %w(blendtec blendtec_test)
+          :dbs =>  %w(dev dev_test)
         },
         :packages => {
-            :debs => %w(php5-gd)
+            :debs => %w(vim) #will run simple apt-get install for any package here
+        },
+        :git => {
+            :email => 'slasley@blendtec.com',
+            :user => 'Stone Lasley',
+            :push_default => 'simple'
         }
       }
-
-
   end
 
   # Enable provisioning with chef server, specifying the chef server URL,
