@@ -65,12 +65,11 @@ at this point you should have the blendtec environment running accessible [from 
       cd /srv/www
       arc install-certificate
 ```
-
-###5. Follow the instructions
+Follow the instructions
 go to [http://dev.blendtec.com/conduit/token/](http://dev.blendtec.com/conduit/token/) copy your token
 paste it in
 
-###6. Update your database
+###5. Update your database
 using your favorite client connect to localhost:3307
 user: root
 password: id10t
