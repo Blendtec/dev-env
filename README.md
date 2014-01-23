@@ -26,7 +26,6 @@ normal git config commands)
 ```shell
     git clone git@github.com:Blendtec/dev-env.git
     cd dev-env
-    chmod +x setup.sh
     ./setup.sh
 ```
 if you're on a windows machine without git gitbash/cygwin installed you probably want to manually
