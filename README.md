@@ -51,6 +51,8 @@ Windows
       git clone git@github.com:Blendtec/residential.git /srv/www
 	  cd /srv/www
 	  git submodule update --init --recursive
+	  mkdir -p /srv/www/app/tmp/{cache/{models,persistent,views},logs,sessions,tests}
+      chmod -R 777 /srv/www/app/tmp
 ```
 
 ###5. Install certificate
@@ -76,6 +78,9 @@ using your favorite client connect to localhost:3307
 user: root
 password: id10t
 update restore with latest dump
+
+###6. Copy configs into directory
+copy provided config files into www/app/Config
 
 at this point you should have the blendtec environment running accessible [from http://localhost:8081](http://localhost:8081)
 
