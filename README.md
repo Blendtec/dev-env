@@ -32,21 +32,25 @@ Windows
 ```shell
     git clone git@github.com:Blendtec/dev-env.git
     cd dev-env
-    ./setup.sh
+    git submodule update --init
 ```
-if you're on a windows machine without git gitbash/cygwin installed you probably want to manually
-go through the commands in setup.sh substituting commands as necessary until I add a batch file. 
 
-###3. Start vagrant (provisioning takes a while on the initial boot). 
+###2. Start vagrant (provisioning takes a while on the initial boot). 
 ```shell
     vagrant up
 ```
-at this point you should have the blendtec environment running accessible [from the host](http://localhost:8081)
 
-###4. Connect to the guest machine
+###3. Connect to the guest machine
 
 ```shell
     vagrant ssh
+```
+
+###4. Clone repo
+```shell
+      git clone git@github.com:Blendtec/residential.git /srv/www
+	  cd /srv/www
+	  git submodule update --init --recursive
 ```
 
 ###5. Install certificate
@@ -61,16 +65,18 @@ Follow the instructions
 
 you should see SUCCESS! Certificate installed. 
 
-###5. Configure Git
+###6. Configure Git
 ```shell
     git config --global user.name "John Doe"
     git config --global user.email johndoe@example.com
 ```
 
-###6. Update your database
+###7. Update your database
 using your favorite client connect to localhost:3307
 user: root
 password: id10t
 update restore with latest dump
+
+at this point you should have the blendtec environment running accessible [from http://localhost:8081](http://localhost:8081)
 
 Do Work!
