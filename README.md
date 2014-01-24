@@ -9,7 +9,7 @@ Blendtec.com Development Environment
 
 ##Configuration
 
-###1. SSH keys generated
+###1. SSH keys generated (most likely already there)
 ```shell
     ssh-keygen -t rsa -C "your_email@example.com"
 ```
@@ -21,7 +21,7 @@ Linux & OS X
 Windows
 ```shell
     eval `ssh-agent.exe`
-    ssh-add ~/.ssh/
+    ssh-add ~/.ssh/id_rsa
 ```
 
 
