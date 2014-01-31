@@ -73,13 +73,25 @@ you should see SUCCESS! Certificate installed.
     git config --global user.email johndoe@example.com
 ```
 
-###7. Update your database
+###7. Configure SSH
+Best way that we know so far is to copy a public/private pair into www, as it is shared. Then run the following:
+```shell
+    cd srv/www
+    mv 'id_rsa/id_rsa.pub' ../../home/vagrant/.ssh
+    chown 0600 'id_rsa' 
+```
+Then to test that it works run:
+```shell
+    ssh -v git@github.com
+```
+
+###8. Update your database
 using your favorite client connect to localhost:3307
 user: root
 password: id10t
 update restore with latest dump
 
-###6. Copy configs into directory
+###9. Copy configs into directory
 copy provided config files into www/app/Config
 
 at this point you should have the blendtec environment running accessible [from http://localhost:8081](http://localhost:8081)
